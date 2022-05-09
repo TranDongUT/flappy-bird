@@ -1,0 +1,34 @@
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .main {
+    width: 360px;
+    height: 550px;
+    background-color: #dadada;
+    background-image: url("../assest/sprites/background-day.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    .base {
+      position: absolute;
+      bottom: -5px;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .game {
+    .main {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
