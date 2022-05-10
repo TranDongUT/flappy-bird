@@ -78,7 +78,7 @@ export default function Game() {
     ///main - base 550 - 160
     if (birdY > 520) {
       dispatch({ type: "GAME_OVER" });
-      alert(`game over ${birdY}`);
+      alert(`game over posBird:${birdY}, posPipeY${y1}, posPipeX${x1}`);
       window.location.reload(false);
     }
 
@@ -90,14 +90,13 @@ export default function Game() {
         (x2 < 105 && 105 < x2 + 52 && birdY > y2)
       ) {
         dispatch({ type: "GAME_OVER" });
-        alert(`game over ${birdY}, ${y1}, ${x1}`);
+        alert(`game over posBird:${birdY}, posPipeY${y1}, posPipeX${x1}`);
 
         window.location.reload(false);
       }
     }
   };
-
-  //check();
+  check();
 
   return (
     <div className="game">
