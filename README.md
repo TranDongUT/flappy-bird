@@ -1,3 +1,8 @@
+# demo https://trandongut.github.io/flappy-bird/
+
+![demo](https://user-images.githubusercontent.com/84276205/167565147-6fff1107-1e80-4e02-bea7-e9e3004a0c97.jpg)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
