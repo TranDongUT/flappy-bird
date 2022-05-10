@@ -12,7 +12,8 @@ export default function pipeReducer(state = initialState, action) {
       };
     case "RENDER_PIPE":
       //Math.floor(Math.random() * (max - min + 1)) + min;
-      const height = Math.round(Math.random() * 200) + 40;
+      const height = Math.floor(Math.random() * 150) + 60;
+      console.log(height);
       return {
         ...state,
         pipes: [...state.pipes, { height: height }],

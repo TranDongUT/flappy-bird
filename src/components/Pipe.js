@@ -16,7 +16,7 @@ export default function Pipe() {
               style={{
                 background: `url(${pipe})`,
                 backgroundRepeat: "no-repeat",
-                transition: "all 1000ms linear",
+                transition: "all 500ms linear",
                 transform: "rotate(180deg)",
                 position: "absolute",
                 width: "52px",
@@ -30,7 +30,7 @@ export default function Pipe() {
               style={{
                 background: `url(${pipe})`,
                 backgroundRepeat: "no-repeat",
-                transition: "all 1000ms linear",
+                transition: "all 500ms linear",
                 position: "absolute",
                 width: "52px",
                 height: "400px",

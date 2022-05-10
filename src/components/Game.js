@@ -14,7 +14,6 @@ export default function Game() {
   let fall = null;
   let renderPipe = null;
 
-  console.log(game.isPlaying);
   if (game.isPlaying == false) {
     clearInterval(fall);
     clearInterval(renderPipe);
@@ -31,7 +30,7 @@ export default function Game() {
     window.addEventListener("click", handlePress);
 
     return () => {
-      window.removeEventListener("click", handlePress);
+      window.removeEventListener("touchstart", handlePress);
       window.removeEventListener("keydown", handlePress);
     };
   }, []);
@@ -57,10 +56,10 @@ export default function Game() {
     }
   };
 
-  const check = (posY, posX, myPipe) => {
-    const birdY = posY;
-    const x = posX;
-    const pipes = myPipe;
+  const check = () => {
+    const birdY = birdState.posY;
+    const x = pipeState.posX;
+    const pipes = pipeState.pipes;
 
     const challenge = pipes
       .map(({ height }, i) => {
@@ -72,32 +71,33 @@ export default function Game() {
         };
       })
       .filter(({ x1 }) => {
-        if (x1 > 0 && x1 < 310) {
+        if (x1 > 5 && x1 < 200) {
           return true;
         }
       });
     ///main - base 550 - 160
-    if (birdY > 410) {
+    if (birdY > 520) {
       dispatch({ type: "GAME_OVER" });
-      alert("game over");
+      alert(`game over ${birdY}`);
       window.location.reload(false);
     }
 
     if (challenge.length) {
       const { x1, x2, y1, y2 } = challenge[0];
-
+      console.log(x1);
       if (
-        (x1 < 110 && 110 < x1 + 52 && birdY < y1) ||
-        (x2 < 110 && 110 < x2 + 52 && birdY > y2)
+        (x1 < 105 && 105 < x1 + 52 && birdY < y1) ||
+        (x2 < 105 && 105 < x2 + 52 && birdY > y2)
       ) {
         dispatch({ type: "GAME_OVER" });
-        alert("game over");
+        alert(`game over ${birdY}, ${y1}, ${x1}`);
+
         window.location.reload(false);
       }
     }
   };
 
-  check(birdState.posY, pipeState.posX, pipeState.pipes);
+  //check();
 
   return (
     <div className="game">
